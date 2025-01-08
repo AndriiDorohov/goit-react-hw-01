@@ -1,11 +1,19 @@
 import React from 'react';
+import styles from './FriendlistItem.module.css';
 
-const FriendListItem = () => {
+const FriendListItem = ({ name, avatar, isOnline }) => {
   return (
-    <div>
-      <img src="" alt="Avatar" width="48" />
-      <p>Friend name</p>
-      <p>Friend status</p>
+    <div className={styles.friendItem}>
+      <img
+        src={avatar}
+        alt={`${name}'s Avatar`}
+        width="50"
+        className={styles.avatar}
+      />
+      <p className={styles.name}>{name}</p>
+      <p className={isOnline ? styles.online : styles.offline}>
+        {isOnline ? 'Online' : 'Offline'}
+      </p>
     </div>
   );
 };
